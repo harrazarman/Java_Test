@@ -41,7 +41,7 @@ sizeof(serv_addr)) < 0)	{
 		perror("ERROR on accept");
 		exit(1);
 	}
-
+	
 	bzero(buffer,256);
 	n = read(newsockfd, buffer, 255);
 
@@ -58,7 +58,9 @@ sizeof(serv_addr)) < 0)	{
 	n = write(newsockfd, "I got your message.",18);
 
 	printf("Assalamualaikum! %s\n", buffer);
-
+	
+	close(newsockfd);
+	close(sockfd);
 	return 0;
 
 }
